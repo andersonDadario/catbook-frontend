@@ -1,0 +1,26 @@
+<div *ngIf="user">
+    <h2>Edit Skills</h2>
+
+    <div class="form-group" *ngFor="let skill of skills">
+        <div class="input-field col s6">
+              <mat-form-field class="example-full-width">
+                <input matInput
+                        #skillName
+                        type="text"
+                        name="skill"
+                        class="effect-7"
+                        placeholder="Skill"
+                        value="{{skill.name}}"
+                         />
+              </mat-form-field> 
+              <button mat-button color="primary" (click)="skill.name = skillName.value; createOrUpdateSkill(skill)">Save Changes</button> 
+              <button mat-button color="warn" (click)="deleteSkillField(skill)">Delete Skill</button>
+        </div>
+    </div>
+
+    <p><button mat-button (click)="addNewSkillField()">Add new Skill</button></p>
+</div>
+
+<div *ngIf="!user">
+    <p>Please choose a user first.</p>
+</div>

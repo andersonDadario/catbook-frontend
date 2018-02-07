@@ -1,0 +1,11 @@
+<h2>Select a cat to log in</h2>
+<div class="wrapper">
+  <div *ngFor="let user of users">
+      <p>
+        <a href="javascript:;" (click)="selectUser(user)">
+            <img class="circle" src="{{user.photo_url}}" />
+            <span>{{user.name}}</span>
+        </a>
+      </p>
+  </div>
+</div>

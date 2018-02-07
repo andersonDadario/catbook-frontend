@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div *ngIf="user">
+         <img src="{{user.photo_url}}" />
+         <p>{{user.name}}</p>
+    </div>
+    <div>
+        <h1>{{title}}</h1>
+        <nav>
+            <a routerLink="/users">Select a cat</a>
+            <a routerLink="/edit" *ngIf="user">Edit my skills</a>
+            <a routerLink="/skills" *ngIf="user">Endorse skills from other cats</a>
+        </nav>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+

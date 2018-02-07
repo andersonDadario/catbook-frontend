@@ -1,0 +1,49 @@
+<div *ngIf="user && userToBeEndorsed">
+
+    <div class="change-cat">
+
+        <h2>Profile of {{userToBeEndorsed.name}}</h2>
+        <img src="{{userToBeEndorsed.photo_url}}" />
+
+        <p>Change cat:</p>
+        <mat-form-field>
+            <mat-select (change)="updateUserToBeEndorsed($event.value)">
+              <mat-option
+                *ngFor="let user of users"
+                value="{{user.id}}">
+                    {{user.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="skill-container" *ngFor="let skill of skills"
+                [@skillState]="skillAnimationState"
+                >
+        <div class="left-column">
+            <span
+                class="skill-endorsers-in-total"
+                [ngClass]="{'endorsed-skill': isSkillEndorsedByCurrentUser(skill) }"
+            >
+                <a 
+                    href="javascript:;"
+                    (click)="addOrDeleteEndorsement(skill)"
+                    >{{skill.total_of_endorsers}}</a>
+            </span>
+            <span class="skill-name">{{skill.name}}</span>
+            <span class="skill-line-through">&nbsp;</span>
+        </div>
+
+        <div class="right-column">
+            <span class="endorser" *ngFor="let endorser of skill.endorsers">
+                <img class="circle" src="{{endorser.photo_url}}" />
+            </span>
+        </div>
+    </div>
+
+</div>
+
+
+<div *ngIf="!user">
+    <p>Please choose a user first.</p>
+</div>

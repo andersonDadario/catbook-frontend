@@ -1,0 +1,84 @@
+img.circle {
+  border-radius: 50%;
+}
+
+.skill-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    padding: 15px;
+    width: 400px;
+    background-repeat: space;
+    background: url(/assets/images/line-through.gif) 0px 30px repeat-x;
+}
+
+.left-column {
+    text-align: left;
+    margin-top: 5px;
+}
+    .skill-endorsers-in-total {
+        margin-right: 10px;
+        border-radius: 30px;
+        border: 2px solid #00A4BB;
+        padding: 7.5px;
+        min-width: 70px;
+        height: 30px;
+    }
+        .skill-endorsers-in-total a {
+            color: #00A4BB;
+            text-decoration: none;
+            display:inline-block;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .skill-endorsers-in-total:hover {
+            background-color: #00A4BB;
+        }
+
+        .skill-endorsers-in-total:hover a {
+            color: #FFF;   
+        }
+
+    .skill-name {
+        background-color: white;
+    }
+
+.right-column {
+    text-align: right;
+}
+
+    .right-column img {
+        width: 30px;
+        height: 30px;
+        transition: all .1s ease-in-out;;
+    }
+
+    .right-column img:hover {
+        transform: scale(2.5);
+    }
+
+.endorsed-skill {
+    background-color: #00A4BB;
+}
+
+.endorsed-skill a {
+    color: #FFF;   
+}
+
+.change-cat {
+    margin: 5px;
+    padding: 10px;
+    border: 2px dashed blue;
+    max-width: 500px;
+    text-align: center;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
