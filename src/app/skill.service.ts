@@ -38,7 +38,7 @@ export class SkillService {
 
   // create skill for the logged in user
   createSkill(skill: Skill): Observable<any> {
-    return this.http.post(this.skillsUrl, skill)
+    return this.http.post<Skill>(this.skillsUrl, skill)
        .pipe(
           tap(skills => this.log('SkillService: createSkill()')),
           catchError(this.handleError('createSkill',{}))
@@ -48,24 +48,12 @@ export class SkillService {
   // update skill for the logged in user
   updateSkill(skill: Skill): Observable<any> {
     const skillForUserURL = `${this.skillsUrl}/${skill.id}`;
-    return this.http.patch(skillForUserURL, skill)
+    return this.http.patch<Skill>(skillForUserURL, skill)
        .pipe(
           tap(users => this.log('SkillService: updateSkill()')),
           catchError(this.handleError('updateSkill',{}))
        );
   }
-
-  // update own skills
-  // must be logged in user
-  // updateOwnSkills(skills: Skill[]): Observable<SkillUser[]> {
-
-  // }
-
-  // endorse skill of an user
-  // must be logged in
-  // endorseSkillOfUser(skills_users: SkillUser): Observable {
-
-  // }
 
   private log(message: string) {
     console.log(message);
