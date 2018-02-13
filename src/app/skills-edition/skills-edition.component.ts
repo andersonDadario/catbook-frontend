@@ -50,7 +50,8 @@ export class SkillsEditionComponent implements OnInit {
 
   private createSkill(skill: Skill) {
     skill.user_id = this.user.id;
-    this._skillService.createSkill(skill).subscribe();
+    this._skillService.createSkill(skill)
+        .subscribe(skill_with_id => skill.id = skill_with_id.id);
   }
 
   private updateSkill(skill: Skill) {
